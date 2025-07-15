@@ -186,22 +186,22 @@ imagen = [
 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
-imagen = np.array(imagen)
+imagen=np.array(imagen)
 
 def movtodo(mat):
     lista = []
     for fila in mat:
-        fila = list(fila)
+        fila=list(fila)
         for col in range(len(fila) - 2, -1, -1):
-            if fila[col] == 0 and fila[col + 1] == 1:
-                fila[col], fila[col + 1] = 1, 0
+            if fila[col]==0 and fila[col+1]== 1:
+                fila[col] , fila[col+1]=1,0
         lista.append(fila)
     return np.array(lista)
-if __name__ == "__main__":
+if __name__ =="__main__":
     while True:
         with multiprocessing.Pool() as grupo:
-            nueva = grupo.map(movtodo, [imagen])[0]
-        if np.array_equal(nueva, imagen):
+            nueva=grupo.map(movtodo,[imagen])[0]
+        if np.array_equal(nueva,imagen):
             break
         imagen = nueva
         plt.imshow(imagen, cmap='gray', vmin=0, vmax=1)
