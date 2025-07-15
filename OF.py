@@ -188,7 +188,7 @@ imagen = [
 
 imagen = np.array(imagen)
 
-def mover_todo(mat):
+def movtodo(mat):
     lista = []
     for fila in mat:
         fila = list(fila)
@@ -200,7 +200,7 @@ def mover_todo(mat):
 if __name__ == "__main__":
     while True:
         with multiprocessing.Pool() as grupo:
-            nueva = grupo.map(mover_todo, [imagen])[0]
+            nueva = grupo.map(movtodo, [imagen])[0]
         if np.array_equal(nueva, imagen):
             break
         imagen = nueva
